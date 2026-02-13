@@ -14,4 +14,14 @@
     Route/profile => profile
 
 - Create a login page
+- Install  axios
+- CORS - Install cors in backend => ad middleware to wth configuration in frontned and backend
+
+#### When ever you are making api call so pass axios {withCredentials:true}
+
+## REACT_REDUX
+- Install react-redux + @reduxjs/tolkit => - 
+
+-configureStore =>Provide => createSlice => add reducer to store
+
 
