@@ -19,7 +19,8 @@ const LogIn = () => {
       const data = await axios.post("http://localhost:7777/login", {
         password: userDetails.password,
         email: userDetails.email,
-
+    },{
+      withCredentials:true
     });
     } catch (error) {
       console.error(error , 'error')
