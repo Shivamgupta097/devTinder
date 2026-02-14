@@ -5,11 +5,13 @@ import NavBar from "./NavBar";
 import { BASE_URL } from "../utils/constants";
 import axios from "axios";
 import { addUser } from "../utils/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 const Body = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userData = useSelector(store => store.user)
 
   const fetchUser = async () => {
     try {
@@ -29,7 +31,10 @@ const Body = () => {
     }
   };
   useEffect(() => {
+    if(!userData){
     fetchUser();
+
+    }
   }, []);
   return (
     <>
