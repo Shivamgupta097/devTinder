@@ -1,11 +1,9 @@
-import { useDispatch , useSelector} from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 
 const NavBar = () => {
-  const store = useSelector((state =>state.user));
+  const store = useSelector((state) => state.user);
 
-
-  console.log("store" , store)
+  console.log("store", store);
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
@@ -18,7 +16,7 @@ const NavBar = () => {
             className="input input-bordered w-24 md:w-auto"
           /> */}
 
-          <p className="my-auto">Welcome, {store?.firstName} </p>
+        <p className="my-auto">Welcome, {store?.firstName} </p>
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -26,10 +24,7 @@ const NavBar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src={store.profileUrl}
-              />
+              <img alt="Tailwind CSS Navbar component" src={store?.photoUrl} />
             </div>
           </div>
           <ul
