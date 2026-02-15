@@ -1,9 +1,9 @@
 import { useState} from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { addUser } from "../utils/userSlice";
 import {useNavigate} from 'react-router-dom'
 import { BASE_URL } from "../utils/constants";
+import { addUser } from "../utils/userSlice";
 
 const LogIn = () => {
   const [userDetails, setUserDetails] = useState({
@@ -34,10 +34,8 @@ const LogIn = () => {
     dispatch(addUser(res.data.data))
     navigate("/feed")
 
-    // console.log("Data" , res.data)
     } catch (error) {
       console.error(error , 'error')
-      res.status(400).json({ message: error.message });
     }
   };
 

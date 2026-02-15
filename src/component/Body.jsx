@@ -4,14 +4,14 @@ import Footers from "./Footers";
 import NavBar from "./NavBar";
 import { BASE_URL } from "../utils/constants";
 import axios from "axios";
-import { addUser } from "../utils/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 
 const Body = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const userData = useSelector(store => store.user)
+  const dispatch =useDispatch()
 
   const fetchUser = async () => {
     try {
@@ -19,13 +19,12 @@ const Body = () => {
         withCredentials: true,
       });
 
-      console.log("response" , res)
+      console.log("res" , res)
 
-      // dispatch(addUser(res.data));
+      dispatch(addUser(res.data));
     } catch (error) {
       if(error.status === 401){
         navigate("/login");
-
       }
       console.error("error", error);
     }

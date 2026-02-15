@@ -30,4 +30,8 @@
 ---- you yould noy be access router without login
 if token is not present, redirect user to login page
 
+-----------------------------------
+- You shoiuld not be access other routes without login
+- if token is not present, redirect page to login
+
 

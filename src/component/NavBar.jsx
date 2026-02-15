@@ -1,14 +1,37 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {Link} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/constants";
+import axios from "axios";
 
 const NavBar = () => {
   const store = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
-  console.log("store", store);
+  const handleLogOut = async () => {
+    console.log("1");
+
+    try {
+      const res = await axios.post(BASE_URL + "/logout ", {
+        withCredentails: true,
+      });
+
+      navigate("/login");
+
+      console.log("response", res);
+      console.log("2");
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl">DevTinder </Link>
+        <Link to="/" className="btn btn-ghost text-xl">
+          DevTinder{" "}
+        </Link>
       </div>
       <div className="flex gap-2 me-3">
         {/* <input
@@ -42,7 +65,7 @@ const NavBar = () => {
               <a>Settings</a>
             </li>
             <li>
-              <a>Logout</a>
+              <p onClick={handleLogOut}>Logout</p>
             </li>
           </ul>
         </div>
