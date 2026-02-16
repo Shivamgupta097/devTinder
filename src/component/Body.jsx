@@ -19,21 +19,20 @@ const Body = () => {
         withCredentials: true,
       });
 
-      console.log("res" , res)
+      console.log("res testing" , res)
 
       dispatch(addUser(res.data));
     } catch (error) {
       if(error.status === 401){
         navigate("/login");
+
       }
       console.error("error", error);
     }
   };
   useEffect(() => {
-    if(!userData){
+  
     fetchUser();
-
-    }
   }, []);
   return (
     <>

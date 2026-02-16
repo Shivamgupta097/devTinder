@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import {useNavigate} from 'react-router-dom'
@@ -38,6 +38,9 @@ const LogIn = () => {
       console.error(error , 'error')
     }
   };
+  useEffect(() =>{
+
+  },[])
 
   return (
     <div className="flex justify-center my-10">
