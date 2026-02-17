@@ -25,9 +25,25 @@ const Feed = () => {
     }
   };
 
+
+
   useEffect(() => {
     getFeed();
+    
   }, []);
+
+  const sendConnectionRequest = async(toUserId , status) =>{
+
+    try{
+      const res = await axios.post(BASE_URL + `/request/send/${status}/${toUserId}`,{}, {
+      withCredentials: true
+    });
+
+    }catch(error){
+      console.error(error)
+    }
+    
+  }
 
   if (!feed || !feed.length) {
     return <p>NO data found</p>;
@@ -39,7 +55,7 @@ const Feed = () => {
         style={{ margin: "center" }}
       >
         {feed.map((c) => (
-          <UserCard user={c} />
+          <UserCard user={c} sendConnectionRequest={sendConnectionRequest}/>
         ))}
       </div>
     </>
