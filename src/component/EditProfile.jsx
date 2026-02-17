@@ -28,7 +28,7 @@ const EditProfile = ({ user }) => {
   };
 
   const updateUser = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     try {
       const res = await axios.patch(
         BASE_URL + "/profile/edit",
@@ -53,8 +53,8 @@ const EditProfile = ({ user }) => {
         setErrors("");
       }, 3000);
     } catch (error) {
-      console.error("error", error.message);
-      setErrors(error.message);
+      console.error("error", error.respose.data.message);
+      setErrors(error.respose.data.message);
     }
   };
 
@@ -180,7 +180,6 @@ const EditProfile = ({ user }) => {
           {
             <div className="alert alert-success">
               <span>{errors}</span>
-              {/* //<>{console.log("shiva==>", errors)}</> */}
             </div>
           }
         </div>
