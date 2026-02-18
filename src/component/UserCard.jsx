@@ -11,7 +11,7 @@ const UserCard = ({ user, _,sendConnectionRequest }) => {
           <p>{user?.about}</p>
           <div className="card-actions justify-end">
             <button className="btn btn-secondary" onClick={() =>sendConnectionRequest(user?._id,"ignored" )}>Ignore</button>
-            <button className="btn btn-primary" onClick={() =>sendConnectionRequest(user?._id, "Interest" )}>Interested</button>
+            <button className="btn btn-primary" onClick={() =>sendConnectionRequest(user?._id, "interested" )}>Interested</button>
           </div>
         </div>
       </div>

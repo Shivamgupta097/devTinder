@@ -69,20 +69,22 @@ const Requests = () => {
             </p>
             <p>{c?.fromUserId?.about}</p>
           </div>
-          {(showButton !== "Accepted" || showButton !=='rejected')  && <div>
+          <div>
             <button
               className="btn btn-primary me-3"
               onClick={() => handleUser("accepted", c?._id)}
+              type="button"
             >
               Accepted
             </button>
             <button
               className="btn btn-secondary "
               onClick={() => handleUser("rejected", c?._id)}
+              
             >
               Rejected
             </button>
-          </div>}
+          </div>
         </div>
       ))}
     </div>
